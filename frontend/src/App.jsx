@@ -54,10 +54,6 @@ function App() {
       <div className="centered-hub">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16 relative animate-fade-in mt-4">
-          {/* Enhanced Ambient Glowing Background */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[rgba(191,229,253,0.4)] rounded-full blur-[60px] -z-10 animate-pulse" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-32 bg-[rgba(203,234,214,0.3)] rounded-full blur-[70px] -z-10 ml-12"></div>
-          
           <img 
             src="/logo.png" 
             alt="RAGFlow Logo" 
@@ -68,7 +64,7 @@ function App() {
               filter: 'drop-shadow(0 12px 24px rgba(63,99,120,0.15))',
               transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }} 
-            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
           />
           <h2 className="font-display text-headline-md text-primary mb-3 tracking-tight">
@@ -130,7 +126,7 @@ function App() {
           <div className="flex flex-col gap-12 animate-fade-in">
             
             {/* Answer Region */}
-            <div className="surface-card surface-glass p-8">
+            <div className="surface-card p-8">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <Sparkles className="text-accent" size={24} />
