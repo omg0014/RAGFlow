@@ -45,16 +45,46 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--background);
+  background: linear-gradient(-45deg, #fcf9f5, #eef7ff, #fcf9f5, #f0fdf4);
+  background-size: 300% 300%;
+  animation: gradientBG 15s ease infinite;
   color: var(--on-surface);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+body::before {
+  width: 45vw;
+  height: 45vw;
+  background: rgba(191,229,253,0.45);
+  top: -10%;
+  left: -10%;
+}
+
+body::after {
+  width: 40vw;
+  height: 40vw;
+  background: rgba(203,234,214,0.35);
+  bottom: -10%;
+  right: -5%;
+  animation-delay: -10s;
 }
 
 /* Animations - Soft and Weighted */
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -65,6 +95,18 @@ body {
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, 8%) scale(1.15); }
+  100% { transform: translate(-4%, -6%) scale(0.9); }
 }
 
 .animate-fade-in {
@@ -120,19 +162,16 @@ body {
 
 /* Surface Hierarchy & Cards */
 .surface-card {
-  background-color: var(--surface-container-lowest);
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255,255,255,0.4);
 }
 
-.surface-glass {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: var(--ghost-border);
-  box-shadow: var(--shadow-ambient);
-}
 
 .card-error {
   background-color: var(--error-container);
@@ -153,19 +192,21 @@ body {
   padding: 0 4rem 0 3.5rem;
   font-size: 1.25rem;
   font-family: var(--font-body);
-  border: var(--ghost-border);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: var(--radius-full);
-  background-color: var(--surface-container-lowest);
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px) saturate(120%);
   color: var(--on-surface);
   outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(191, 229, 253, 0.15); /* primary-container subtle glow */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 24px rgba(63, 99, 120, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
 
 .search-input:focus {
-  background-color: var(--surface-container-lowest);
-  border-color: rgba(63, 99, 120, 0.2);
-  box-shadow: 0 8px 30px rgba(191, 229, 253, 0.4);
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(63, 99, 120, 0.3);
+  box-shadow: 0 8px 32px rgba(63, 99, 120, 0.12), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
 }
 
 .search-input::placeholder {
@@ -256,17 +297,20 @@ body {
 .source-card {
   display: block;
   text-decoration: none;
-  background-color: var(--surface-container-low);
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: inherit;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), inset 0 0 0 1px rgba(255,255,255,0.3);
 }
 
 .source-card:hover {
-  background-color: var(--surface-container-lowest);
-  box-shadow: var(--shadow-ambient);
-  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 24px rgba(63, 99, 120, 0.08), inset 0 0 0 1px rgba(255,255,255,0.6);
+  transform: translateY(-4px);
 }
 
 .source-title {
