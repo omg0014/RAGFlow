@@ -53,12 +53,32 @@ function App() {
     <div className="container animate-fade-in">
       <div className="centered-hub">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-12 relative animate-fade-in">
-          <div className="absolute top-0 w-32 h-32 bg-[rgba(191,229,253,0.4)] rounded-full blur-[50px] -z-10"></div>
-          <img src="/logo.png" alt="RAGFlow Logo" style={{ height: '5rem', width: 'auto', marginBottom: '1.25rem', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.05))' }} />
-          <p className="font-body text-body-lg text-secondary">
-            Your ambient research assistant. Ask a question to begin.
+        <div className="flex flex-col items-center text-center mb-16 relative animate-fade-in mt-4">
+          {/* Enhanced Ambient Glowing Background */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[rgba(191,229,253,0.4)] rounded-full blur-[60px] -z-10 animate-pulse" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-32 bg-[rgba(203,234,214,0.3)] rounded-full blur-[70px] -z-10 ml-12"></div>
+          
+          <img 
+            src="/logo.png" 
+            alt="RAGFlow Logo" 
+            style={{ 
+              height: '8.5rem', 
+              width: 'auto', 
+              marginBottom: '1.5rem', 
+              filter: 'drop-shadow(0 12px 24px rgba(63,99,120,0.15))',
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+            }} 
+            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+          <h2 className="font-display text-headline-md text-primary mb-3 tracking-tight">
+            Research Assistant
+          </h2>
+          <br></br>
+          <p className="font-body text-body-lg text-secondary max-w-lg leading-relaxed">
+             Ask any question to synthesize authoritative insights instantly.
           </p>
+          <br></br>
         </div>
 
         {/* Search Input Area */}
