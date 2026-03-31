@@ -2,26 +2,26 @@
 
 RAGFlow is a high-performance, production-grade AI research assistant that decomposes complex queries, synthesizes authoritative web insights, and delivers answers in a **world-class SaaS interface**.
 
-## ✨ Features & UX Refinements
+##  Features & UX Refinements
 
-### 💎 SaaS-Grade UI/UX
+###  SaaS-Grade UI/UX
 - **Glassmorphism Redesign**: Every chat bubble features high-fidelity `backdrop-filter: blur()` and low-opacity borders with premium depth.
 - **Floating Input Dock**: A modern, pill-shaped floating message bar that anchors the interaction experience.
 - **Indigo/Charcoal Palette**: A professionally curated design system featuring deep charcoal backgrounds and vibrant indigo accents.
 
-### ⚡ Interactive Experience
+###  Interactive Experience
 - **Simulated Streaming**: Character-by-character response streaming for a humanized, "real-time" interaction feel.
 - **Micro-animations**: Powered by **Framer Motion**, including message fade-ins, button "lift" hover effects, and a pulsing typing indicator.
 - **Tactile Feedback**: Every interaction features soft shadows and smooth transitions for a premium SaaS feel.
 
-### 🛠️ Core Functionality
+###  Core Functionality
 - **Persistent Chat History**: LocalStorage-based conversation management with auto-titling, renaming, and deletion.
 - **Rich Formatting**: Full **Markdown** support with **Prism.js** for professional syntax highlighting and code block rendering.
 - **Smart Sourcechips**: Dedicated UI for authoritative sources, rendered as distinct interactive chips.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```mermaid
 graph TD
@@ -36,7 +36,7 @@ graph TD
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Backend Setup (Port 8000)
 ```bash
