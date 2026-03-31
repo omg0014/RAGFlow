@@ -1,0 +1,142 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-sidebar);
+  color: var(--text-main);
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.new-chat-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: transparent;
+  border: 1px solid var(--border-sidebar);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.new-chat-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+}
+
+.chat-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.chat-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-sm);
+}
+
+.chat-icon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.chat-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-actions {
+  display: none;
+  gap: 0.5rem;
+  opacity: 0.6;
+}
+
+.chat-item:hover .chat-actions {
+  display: flex;
+}
+
+.chat-actions button {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.chat-actions button:hover {
+  opacity: 1;
+}
+
+.edit-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.edit-container input {
+  background-color: #40414f;
+  border: 1px solid var(--accent);
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
+  width: 100%;
+}
+
+.edit-container button {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border-sidebar);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
