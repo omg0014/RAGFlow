@@ -11,6 +11,8 @@ export default defineConfig({
     },
   },
   server: {
+    port: 5174,
+    host: true,
     proxy: {
       "/ask": "http://localhost:8000",
       "/health": "http://localhost:8000",
