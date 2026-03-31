@@ -17,7 +17,7 @@ export const ChatWindow = ({ messages, isLoading, currentStep, isStreaming }) =>
     return (
       <div className="empty-state">
         <h1 className="welcome-title">Research Assistant</h1>
-        <p className="welcome-subtitle">Ask anything to synthesize authoritative insights instantly.</p>
+        <p className="welcome-subtitle">Ask me anything...</p>
       </div>
     );
   }
