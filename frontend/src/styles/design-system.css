@@ -1,40 +1,56 @@
 :root {
-  /* ChatGPT-like Color Palette */
-  --bg-sidebar: #202123;
-  --bg-main: #343541;
-  --bg-message-user: #343541;
-  --bg-message-ai: #444654;
-  --text-main: #ececf1;
-  --text-secondary: #c5c5d2;
-  --border-sidebar: #4d4d4f;
-  --accent: #10a37f; /* OpenAI green */
-  --accent-hover: #1a7f64;
+  /* Modern Indigo/Purple Design Tokens (Light Mode Default) */
+  --bg-main: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-bubble-user: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --bg-bubble-ai: #f1f5f9;
+  
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-white: #ffffff;
+  
+  --border-main: #e2e8f0;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  
+  /* Glassmorphism & Depth Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 16px;
+  
+  --shadow-premium: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --shadow-glass: 0 4px 16px 0 rgba(31, 38, 135, 0.05);
   
   /* Geometry */
   --sidebar-width: 280px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
   
-  /* Typography */
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-  
-  /* Shadows & Gradients */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
-  --gradient-ai: linear-gradient(135deg, #10a37f 0%, #1a7f64 100%);
+  --max-width-chat: 700px;
 }
 
-[data-theme='light'] {
-  --bg-sidebar: #f9f9f9;
-  --bg-main: #ffffff;
-  --bg-message-user: #ffffff;
-  --bg-message-ai: #f7f7f8;
-  --text-main: #2d2d2d;
-  --text-secondary: #6e6e80;
-  --border-sidebar: #e5e5e5;
-  --accent: #10a37f;
+[data-theme='dark'] {
+  --bg-main: #343541;
+  --bg-sidebar: #202123;
+  --bg-card: #202123;
+  --bg-bubble-user: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --bg-bubble-ai: rgba(255, 255, 255, 0.05);
+  
+  --glass-bg: rgba(68, 70, 84, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  
+  --border-main: rgba(255, 255, 255, 0.05);
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  
+  --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -73,9 +89,13 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-main);
+  background: var(--bg-main);
   position: relative;
   overflow: hidden;
+}
+
+.main-content::before {
+  display: none;
 }
 
 /* Scrollbar styling */
