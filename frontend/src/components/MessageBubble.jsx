@@ -42,7 +42,7 @@ export const MessageBubble = ({ role, content, isStreaming }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -53,7 +53,7 @@ export const MessageBubble = ({ role, content, isStreaming }) => {
           {isAI ? 'AI' : 'U'}
         </div>
         <div className="message-content">
-          <ReactMarkdown 
+          <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
               code({ node, inline, className, children, ...props }) {
@@ -75,7 +75,7 @@ export const MessageBubble = ({ role, content, isStreaming }) => {
             {content}
           </ReactMarkdown>
           {isStreaming && <span className="typing-cursor">|</span>}
-          
+
           {sources.length > 0 && (
             <div className="sources-container">
               <div className="sources-label">Sources</div>

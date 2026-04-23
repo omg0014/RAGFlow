@@ -4,5 +4,6 @@ langchain
 langchain-google-genai
 langchain-community
 google-search-results
+langchain-groq
 python-dotenv
 pydantic

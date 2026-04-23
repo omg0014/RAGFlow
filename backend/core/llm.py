@@ -1,8 +1,9 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from core.config import GOOGLE_API_KEY
+from langchain_groq import ChatGroq
+from core.config import GROQ_API_KEY
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
-    google_api_key=GOOGLE_API_KEY,
-    temperature=0.2
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    groq_api_key=GROQ_API_KEY,
+    temperature=0.2,
+    max_retries=3,
 )
