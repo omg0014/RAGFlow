@@ -1,12 +1,21 @@
 .chat-input-container {
-  padding: 1.5rem 2rem 2.5rem;
-  background: transparent;
+  padding: 1rem;
+  background-color: var(--bg-main); /* solid background to hide scrolling messages on mobile */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   position: sticky;
   bottom: 0;
   z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .chat-input-container {
+    padding: 1.5rem 2rem 2.5rem;
+    background: transparent;
+    background: linear-gradient(180deg, transparent 0%, var(--bg-main) 20%);
+    gap: 1.5rem;
+  }
 }
 
 .prompt-templates {

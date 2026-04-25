@@ -4,6 +4,7 @@ import { ChatWindow } from './components/ChatWindow';
 import { ChatInput } from './components/ChatInput';
 import { useChat } from './hooks/useChat';
 import { askQuestion } from './services/api';
+import { Menu, X } from 'lucide-react';
 import './styles/design-system.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState('');
   const stopRef = useRef(false);
   const [theme, setTheme] = useState(() => localStorage.getItem('ragflow_theme') || 'dark');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleTheme = useCallback(() => {
     setTheme(prev => {
@@ -105,16 +107,38 @@ function App() {
 
   return (
     <div className="layout-container" data-theme={theme}>
-      <Sidebar 
-        chats={chats} 
-        currentChatId={currentChatId}
-        onSelectChat={selectChat}
-        onCreateChat={createNewChat}
-        onDeleteChat={deleteChat}
-        onRenameChat={renameChat}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-      />
+      <div className="mobile-header">
+        <button className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        <span className="mobile-title">RAGFlow</span>
+      </div>
+      
+      <div className={`sidebar-container ${isMobileMenuOpen ? 'open' : ''}`}>
+        <Sidebar 
+          chats={chats} 
+          currentChatId={currentChatId}
+          onSelectChat={(id) => {
+            selectChat(id);
+            setIsMobileMenuOpen(false);
+          }}
+          onCreateChat={() => {
+            createNewChat();
+            setIsMobileMenuOpen(false);
+          }}
+          onDeleteChat={deleteChat}
+          onRenameChat={renameChat}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+        />
+      </div>
+      {isMobileMenuOpen && (
+        <div 
+          className="sidebar-overlay" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       <main className="main-content">
         <ChatWindow 
           messages={currentChat?.messages || []} 

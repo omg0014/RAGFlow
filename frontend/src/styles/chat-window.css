@@ -12,7 +12,13 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .messages-list {
+    padding: 2rem 1rem;
+  }
 }
 
 .empty-state {
@@ -27,9 +33,9 @@
 }
 
 .welcome-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   background: var(--bg-bubble-user);
   -webkit-background-clip: text;
   background-clip: text;
@@ -38,11 +44,24 @@
   letter-spacing: -0.025em;
 }
 
+@media (min-width: 768px) {
+  .welcome-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .welcome-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary);
   max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .welcome-subtitle {
+    font-size: 1.25rem;
+  }
 }
 
 .typing-indicator {
