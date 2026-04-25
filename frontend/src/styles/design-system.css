@@ -84,12 +84,13 @@ body {
 .mobile-header {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
   background-color: var(--bg-sidebar);
   border-bottom: 1px solid var(--border-sidebar);
   z-index: 10;
   color: var(--text-main);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-premium);
 }
 
 @media (min-width: 768px) {
@@ -98,20 +99,27 @@ body {
   }
 }
 
-.menu-toggle {
+.menu-toggle, .mobile-new-chat {
   background: transparent;
   border: none;
   color: var(--text-main);
   cursor: pointer;
-  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.menu-toggle:hover, .mobile-new-chat:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-title {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
 }
 
 /* Sidebar Container */

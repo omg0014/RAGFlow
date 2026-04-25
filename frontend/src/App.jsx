@@ -4,7 +4,7 @@ import { ChatWindow } from './components/ChatWindow';
 import { ChatInput } from './components/ChatInput';
 import { useChat } from './hooks/useChat';
 import { askQuestion } from './services/api';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Plus } from 'lucide-react';
 import './styles/design-system.css';
 
 function App() {
@@ -112,6 +112,12 @@ function App() {
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <span className="mobile-title">RAGFlow</span>
+        <button className="mobile-new-chat" onClick={() => {
+          createNewChat();
+          setIsMobileMenuOpen(false);
+        }}>
+          <Plus size={20} />
+        </button>
       </div>
       
       <div className={`sidebar-container ${isMobileMenuOpen ? 'open' : ''}`}>
